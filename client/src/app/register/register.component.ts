@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -6,13 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @Input() usersFromHomeComponent: any;
   model: any = {};
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
   register() {
     console.log(this.model);
   }
