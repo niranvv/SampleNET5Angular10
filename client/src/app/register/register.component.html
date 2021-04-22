@@ -2,7 +2,12 @@
     <h2 class="text-center text-primary">Sing up</h2>
     <hr>
     <div class="form-group">
-        <input type="text" class="form-control" formControlName="username" placeholder="Username">
+        <input type="text" 
+            [class.is-invalid]='registerForm.get("username").errors && registerForm.get("username").touched'
+            class="form-control" 
+            formControlName="username" 
+            placeholder="Username">
+        <div class="invalid-feedback">Please enter a username</div>
     </div>
     <!-- <div class="form-group">
         <label>Who is your fav user?</label>
@@ -13,10 +18,19 @@
         </select>
     </div> -->
     <div class="form-group">
-        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+        <input type="password" 
+        [class.is-invalid]='registerForm.get("password").errors && registerForm.get("password").touched'
+        class="form-control" formControlName="password" placeholder="Password">
+        <div *ngIf="registerForm.get('password').hasError('required')" class="invalid-feedback">Please enter a password</div>
+        <div *ngIf="registerForm.get('password').hasError('minlength')" class="invalid-feedback">Password must be atleast 4 chars</div>
+        <div *ngIf="registerForm.get('password').hasError('maxlength')" class="invalid-feedback">Password at most 8 chars</div>
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+        <input type="password" 
+        [class.is-invalid]='registerForm.get("confirmPassword").errors && registerForm.get("confirmPassword").touched'
+        class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+        <div *ngIf="registerForm.get('confirmPassword').hasError('required')" class="invalid-feedback">Please enter a confirm password</div>
+        <div *ngIf="registerForm.get('confirmPassword').hasError('isMatching')" class="invalid-feedback">Password & Confirm password should match</div>
     </div>
     <div class="form-group text-center">
         <button class="btn btn-success mr-2" type="submit">Register</button>
