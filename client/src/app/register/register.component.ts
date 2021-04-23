@@ -14,9 +14,9 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   registerForm: FormGroup;
 
-  constructor(private accountService: AccountService, 
-              private toastr: ToastrService,
-              private fb: FormBuilder) { }
+  constructor(private accountService: AccountService,
+    private toastr: ToastrService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -24,8 +24,8 @@ export class RegisterComponent implements OnInit {
 
   initializeForm() {
     this.registerForm = this.fb.group({
-      username: ['Hello', Validators.required],
-      password:['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', [Validators.required, this.matchValues('password')]]
     });
 
