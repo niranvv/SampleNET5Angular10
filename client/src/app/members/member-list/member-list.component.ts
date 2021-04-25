@@ -10,21 +10,26 @@ import { MembersService } from 'src/app/_services/members.service';
   styleUrls: ['./member-list.component.css']
 })
 export class MemberListComponent implements OnInit {
-  members : Member[];
+  members: Member[];
   pagination: Pagination;
-  pageNumber=1;
-  pageSize=5;
+  pageNumber = 1;
+  pageSize = 5;
 
-  constructor(private memberService : MembersService) { }
+  constructor(private memberService: MembersService) { }
 
   ngOnInit(): void {
     this.loadMembers()
   }
 
-  loadMembers(){
-    this.memberService.getMembers(this.pageNumber,this.pageSize).subscribe(response => {
-      this.members=response.result;
-      this.pagination=response.pagination;
-    })
+  loadMembers() {
+    this.memberService.getMembers(this.pageNumber, this.pageSize).subscribe(response => {
+      this.members = response.result;
+      this.pagination = response.pagination;
+    });
+  }
+
+  pageChanged(event: any) {
+    this.pageNumber = event.page;
+    this.loadMembers();
   }
 }
