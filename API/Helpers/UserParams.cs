@@ -16,7 +16,7 @@ namespace API.Helpers
 
         public int MiNAge { get; set; }=18;
         public int MaxAge { get; set; }=150;
-        
+        public string OrderBy { get; set; }="lastActive";
 
     }
 }
