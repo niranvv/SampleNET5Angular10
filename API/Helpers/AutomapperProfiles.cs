@@ -32,7 +32,7 @@ namespace API.Helpers
                     .ForMember(
                         dest => dest.RecipientPhotoUrl,
                         opt => opt.MapFrom(src => src.Recipient.Photos
-                                                        .FirstOrDefault(x => x.IsMain).Url))
+                                                        .FirstOrDefault(x => x.IsMain).Url)
                     );
         }
     }

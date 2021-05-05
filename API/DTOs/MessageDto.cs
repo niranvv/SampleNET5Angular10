@@ -15,5 +15,4 @@ namespace API.Interfaces
         public DateTime? DateRead { get; set; }
         public DateTime MessageSent { get; set; }
     }
-    }
 }
