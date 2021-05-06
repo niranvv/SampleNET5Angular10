@@ -14,7 +14,7 @@ import { MessageService } from 'src/app/_services/message.service';
 })
 export class MemberDetailComponent implements OnInit {
   @ViewChild('memberTabs') memberTabs: TabsetComponent;
-  //activeTab: TabDirective;
+  activeTab: TabDirective;
   member: Member;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -64,10 +64,9 @@ export class MemberDetailComponent implements OnInit {
     })
   }
 
-  changeTab($event) {
-    //this.activeTab = data;
-    //console.log(data);
-    if ($event.heading === 'Messages' && this.messages?.length === 0) {
+  onTabActivated(data: TabDirective) {
+    this.activeTab = data;
+    if (this.activeTab.heading === 'Messages' && this.messages?.length === 0) {
       this.loadMessages();
     }
   }

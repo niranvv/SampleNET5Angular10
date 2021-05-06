@@ -31,22 +31,22 @@
     </div>
     <div class="col-8">
         <tabset class="member-tabset" #memberTabs>
-            <tab heading='About {{member.knownAs}}' (selectTab)="changeTab($event)">
+            <tab heading='About {{member.knownAs}}' (selectTab)="onTabActivated($event)">
                 <h4>Description</h4>
                 <p>{{member.introduction}}</p>
                 <h4>Looking For</h4>
                 <p>{{member.lookingFor}}</p>
             </tab>
-            <tab heading='Interests' (selectTab)="changeTab($event)">
+            <tab heading='Interests' (selectTab)="onTabActivated($event)">
                 <h4>Interests</h4>
                 <p>{{member.interests}}</p>
             </tab>
-            <tab heading='Photos' (selectTab)="changeTab($event)">
+            <tab heading='Photos' (selectTab)="onTabActivated($event)">
                 <h4>Photos</h4>
                 <ngx-gallery [options]="galleryOptions" [images]="galleryImages" 
                     style="display: inline-block; margin-bottom: 20px;"></ngx-gallery>
             </tab>
-            <tab heading='Messages' (selectTab)="changeTab($event)">
+            <tab heading='Messages' (selectTab)="onTabActivated($event)">
                 <h4>Messages</h4>
                 <app-member-messages [messages]="messages"></app-member-messages>
             </tab>
