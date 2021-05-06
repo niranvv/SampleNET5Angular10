@@ -53,7 +53,12 @@
 
             </td>
             <td>{{message.messageSent | timeago}}</td>
-            <td><button class="btn btn-danger">Delete</button></td>
+            <td>
+                <button class="btn btn-danger" 
+                        (click)="$event.stopPropagation()" 
+                        (click)="deleteMessages(message.id)">
+                            Delete</button>
+            </td>
         </tr>
     </table>
 </div>
