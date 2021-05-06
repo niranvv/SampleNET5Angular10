@@ -34,11 +34,11 @@
         </ul>
     </div>
     <div class="card-footer">
-        <form >
+        <form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
             <div class="input-group">
-                <input type="text" class="form-control input-sm" placeholder="Send aprivate message">
+                <input type="text" class="form-control input-sm" placeholder="Send aprivate message" name="messageContent" [(ngModel)]="messageContent" required>
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit">Send</button>
+                    <button class="btn btn-primary" type="submit" [disabled]="!messageForm.valid">Send</button>
                 </div>
             </div>
         </form>
