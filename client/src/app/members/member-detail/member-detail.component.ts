@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { take } from 'rxjs/operators';
@@ -26,9 +26,12 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
 
   constructor(public presence: PresenceService,
     private route: ActivatedRoute,
+    private router: Router,
     private accountService: AccountService,
     private messageService: MessageService) {
       this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
+      //Avoid Router Reuse to show the latest messages 
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   ngOnInit(): void {
