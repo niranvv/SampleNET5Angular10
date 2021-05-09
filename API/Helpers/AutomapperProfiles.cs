@@ -12,7 +12,7 @@ namespace API.Helpers
     {
         public AutomapperProfiles()
         {
-            CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d,DateTimeKind.Utc));
+            //CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d,DateTimeKind.Utc));
 
             CreateMap<AppUser, MemberDto>()
                 .ForMember(
