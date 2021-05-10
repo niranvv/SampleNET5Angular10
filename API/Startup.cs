@@ -80,6 +80,10 @@ namespace API
             //Ordering matters here..!!
             app.UseAuthorization();
 
+            // Use index.html from Angular
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             //Ordering matters here..!!
             app.UseEndpoints(endpoints =>
             {
