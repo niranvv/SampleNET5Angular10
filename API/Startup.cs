@@ -90,6 +90,9 @@ namespace API
                 endpoints.MapControllers();
                 endpoints.MapHub<PresenceHub>("hubs/presence");
                 endpoints.MapHub<MessageHub>("hubs/message");
+
+                // Fallback Controller to redirect to Angular page to avoid not found page while refreshing browser
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
